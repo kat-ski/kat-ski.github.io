@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kat Skingle</title>
+<meta name="description" content="British-Canadian girl, currently spending time between London and SF. Background in physics and philosophy. Interests include: radioactivity, fine art, and education!">
+<!-- Security: no scripts, no outside resources, no forms. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<style>
+  :root {
+    --canvas: #f5f1e7;
+    --graphite: #4b4a47;
+    --pencil: rgba(75, 74, 71, 0.22);
+    --faint: rgba(75, 74, 71, 0.6);
+    --rose: #eedcd5;
+    --blue: #d9e3e8;
+    --yellow: #f1e9c9;
+    --grey: #e9e6dd;
+    --row: 30px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--graphite);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 17px;
+    line-height: var(--row);
+  }
+  .canvas {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 16px 90px;
+  }
+  .label, h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  /* Header: a ruled square of pencil lines */
+  header {
+    padding: calc(var(--row) * 3) 30px calc(var(--row) * 2);
+    border: 1px solid var(--pencil);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--row) - 1px),
+      var(--pencil) calc(var(--row) - 1px),
+      var(--pencil) var(--row)
+    );
+  }
+  h1 {
+    margin: 0 0 var(--row);
+    font-size: 26px;
+    line-height: var(--row);
+    letter-spacing: 0.32em;
+  }
+  header p { margin: 0 0 var(--row); max-width: 34em; }
+  header p:last-child { margin-bottom: 0; }
+
+  /* Bands */
+  section {
+    margin-top: var(--row);
+    padding: var(--row) 30px;
+    border-top: 1px solid var(--pencil);
+    border-bottom: 1px solid var(--pencil);
+  }
+  .rose { background: var(--rose); }
+  .blue { background: var(--blue); }
+  .yellow { background: var(--yellow); }
+  .grey { background: var(--grey); }
+  .band-group section { margin-top: 0; border-bottom: 0; }
+  .band-group { margin-top: var(--row); border-bottom: 1px solid var(--pencil); }
+
+  .label {
+    margin: 0 0 var(--row);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--faint);
+  }
+  h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: italic;
+  }
+  p { margin: 0; }
+  .item + .item { margin-top: var(--row); }
+  .note { color: var(--faint); }
+  .attached {
+    margin-top: calc(var(--row) / 2);
+    padding-left: 18px;
+    border-left: 1px solid var(--pencil);
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+  .row { display: grid; grid-template-columns: 120px 1fr; }
+  .row .label { margin: 0; line-height: var(--row); }
+  li span { color: var(--faint); }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--pencil);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  a:hover, a:focus-visible { text-decoration-color: var(--graphite); }
+  a:focus-visible { outline: 1px solid var(--graphite); outline-offset: 3px; }
+
+  footer {
+    margin-top: calc(var(--row) * 2);
+    text-align: center;
+    font-size: 14px;
+    color: var(--faint);
+  }
+
+  /* Title card with the photo beside it */
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 232px;
+    gap: 20px;
+    align-items: stretch;
+  }
+  /* The photo takes its height from the title card, so the ruled lines stay whole. */
+  .portrait { margin: 0; border: 1px solid var(--pencil); position: relative; }
+  .portrait img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 520px) {
+    .top { grid-template-columns: 1fr; gap: var(--row); }
+    .portrait img { position: static; height: auto; }
+    header, section { padding-left: 18px; padding-right: 18px; }
+    h1 { font-size: 21px; letter-spacing: 0.24em; }
+    .row { grid-template-columns: 1fr; }
+    .row .label { margin-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="top">
+    <header>
+      <h1>Kat Skingle</h1>
+      <p>British-Canadian girl, currently spending time between London and SF. Background in physics and philosophy. Interests include: radioactivity, fine art, and education!</p>
+    </header>
+    <!-- The photo must sit in the same folder as this file, with exactly this name. -->
+    <figure class="portrait">
+      <img src="kat-reading.jpg" width="900" height="1200" alt="Someone holding a Nietzsche paperback over their face, wearing pointe shoes on a wooden floor.">
+    </figure>
+  </div>
+
+  <section class="grey" aria-labelledby="projects">
+    <h2 class="label" id="projects">Projects</h2>
+    <div class="item">
+      <h3><a href="https://github.com/kat-ski/brachytherapy-dose" rel="noopener noreferrer">Brachytherapy seed dose</a></h3>
+      <p>A dose calculator for iodine-125 brachytherapy seeds (model 6711), written in Python using the standard TG-43 method. It gives the dose rate at any point around one seed or several, and maps it. Checked against Carleton University&rsquo;s published dose tables for this seed: 97% of points agree to within 1%.</p>
+      <p class="note">Next step: train a model to outline the prostate in publicly available MRI scans, then compare the dose calculated with its outlines against the dose calculated with outlines drawn by experts.</p>
+    </div>
+    <div class="item">
+      <h3><a href="https://sotazine.com" rel="noopener noreferrer">State of the Art</a></h3>
+      <p>Illustrator for SOTA, an SF-based zine about technology and culture. Drawn under the name Katherine Leidl.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="research">
+    <h2 class="label" id="research">Research</h2>
+    <div class="item">
+      <h3><a href="https://doi.org/10.3390/cryst15030214" rel="noopener noreferrer">Machine Learning Analysis of Umbilic Defect Annihilation in Nematic Liquid Crystals in the Presence of Nanoparticles</a></h3>
+      <p class="note">Co-author. <i>Crystals</i> 15 (3), 214, 2025.</p>
+      <div class="attached">
+        <!-- The six PDFs must sit in the same folder as this file, with exactly these names. -->
+        <h3><a href="mphys-project-report.pdf">Following Topological Defect Annihilation with Machine Learning Algorithms</a></h3>
+        <p class="note">MPhys project report, University of Manchester (PDF).</p>
+        <p>The report I wrote on my part of the work behind the paper: using machine learning (YOLOv5 and DeepSORT, in Python) to track annihilating defects in nanoparticle-doped liquid crystals.</p>
+      </div>
+    </div>
+    <div class="item">
+      <h3><a href="gender-at-the-manhattan-project.pdf">Gender at the Manhattan Project: A Historicised Account of Identity and Epistemic Injustice in Physics</a></h3>
+      <p class="note">Master&rsquo;s Dissertation, University of Cambridge</p>
+    </div>
+    <div class="item">
+      <h3><a href="radiography-as-womens-work.pdf">Radiography as Women&rsquo;s Work: British Nurses and Diagnostic X-Rays in the First World War</a></h3>
+    </div>
+    <div class="item">
+      <h3><a href="shimizu-cloud-chamber.pdf">Takeo Shimizu and the &lsquo;Schools&rsquo; Cloud Chamber&rsquo;: Research and Pedagogy in the Search to Visualise Atomic Processes, from Cambridge to Tokyo</a></h3>
+    </div>
+    <div class="item">
+      <h3><a href="human-remains-medical-museums.pdf">Ethics Relating to the Retention and Display of Human Remains in Medical Museums: Case Studies at the Surgeons&rsquo; Hall Museums, Edinburgh</a></h3>
+    </div>
+    <div class="item">
+      <h3><a href="mathematical-explanation-indispensability.pdf">Examples and Explorations of Mathematical Explanation in Support of the Indispensability Argument</a></h3>
+    </div>
+  </section>
+
+  <div class="band-group">
+    <section class="rose" aria-labelledby="books">
+      <div class="row">
+        <h2 class="label" id="books">Favourite books</h2>
+        <ul>
+          <li>Madame Bovary <span>Gustave Flaubert</span></li>
+          <li>East of Eden <span>John Steinbeck</span></li>
+          <li>Getting Lost <span>Annie Ernaux</span></li>
+          <li>Immortality <span>Milan Kundera</span></li>
+          <li>The MANIAC <span>Benjamín Labatut</span></li>
+        </ul>
+      </div>
+    </section>
+    <section class="blue" aria-labelledby="films">
+      <div class="row">
+        <h2 class="label" id="films">Favourite films</h2>
+        <ul>
+          <li>Mulholland Drive <span>David Lynch</span></li>
+          <li>Seven Samurai <span>Akira Kurosawa</span></li>
+          <li>Daisies <span>Věra Chytilová</span></li>
+        </ul>
+      </div>
+    </section>
+    <section class="yellow" aria-labelledby="artists">
+      <div class="row">
+        <h2 class="label" id="artists">Favourite artists</h2>
+        <ul>
+          <li>Agnes Martin</li>
+          <li>Gwen John</li>
+          <li>Francisco Goya</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="band-group">
+    <section aria-labelledby="reading">
+      <div class="row">
+        <h2 class="label" id="reading">Currently reading</h2>
+        <ul>
+          <li>Nuclear War: A Scenario <span>Annie Jacobsen</span></li>
+          <li>Thus Spoke Zarathustra <span>Friedrich Nietzsche</span></li>
+          <li>Prophecy <span>Carissa Véliz</span></li>
+          <li>Veronica <span>Mary Gaitskill</span></li>
+        </ul>
+      </div>
+    </section>
+    <section aria-labelledby="books-2026">
+      <div class="row">
+        <h2 class="label" id="books-2026">Books of 2026</h2>
+        <ul>
+          <li>Just Kids <span>Patti Smith</span></li>
+          <li>Dancing on My Grave <span>Gelsey Kirkland</span></li>
+          <li>Immortality <span>Milan Kundera</span></li>
+          <li>The Possessed <span>Witold Gombrowicz</span></li>
+          <li>The Fawn <span>Magda Szabó</span></li>
+          <li>The Castle <span>Franz Kafka</span></li>
+          <li>On the Road <span>Jack Kerouac</span></li>
+          <li>The Last Samurai <span>Helen DeWitt</span></li>
+          <li>The Melancholy of Resistance <span>László Krasznahorkai</span></li>
+          <li>An Academic Question <span>Barbara Pym</span></li>
+          <li>Wide Sargasso Sea <span>Jean Rhys</span></li>
+          <li>Everything is True <span>Roopa Farooki</span></li>
+          <li>Getting Lost <span>Annie Ernaux</span></li>
+          <li>Picnic at Hanging Rock <span>Joan Lindsay</span></li>
+          <li>Sputnik Sweetheart <span>Haruki Murakami</span></li>
+          <li>Monkey Grip <span>Helen Garner</span></li>
+          <li>A Wild Sheep Chase <span>Haruki Murakami</span></li>
+          <li>The Hour of the Star <span>Clarice Lispector</span></li>
+          <li>Austerlitz <span>W. G. Sebald</span></li>
+          <li>The Dud Avocado <span>Elaine Dundy</span></li>
+          <li>Leaving the Atocha Station <span>Ben Lerner</span></li>
+          <li>Of Human Bondage <span>W. Somerset Maugham</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section aria-labelledby="contact">
+    <h2 class="label" id="contact">Contact</h2>
+    <p><a href="mailto:kat29ski@gmail.com">kat29ski@gmail.com</a> ·<a href="https://x.com/kat_skingle" rel="noopener noreferrer">Twitter</a> · <a href="https://github.com/kat-ski" rel="noopener noreferrer">GitHub</a></p>
+  </section>
+
+  <footer>London / San Francisco</footer>
+
+</div>
+</body>
+</html>
